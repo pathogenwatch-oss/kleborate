@@ -1,6 +1,31 @@
-Run with no extra options to just the virulence predictions.
+CGPS-Kleborate
+--------------
 
+Docker wrapper of Kat Holt's Kleborate for integration with Pathogenwatch.
+
+Takes a FASTA file streamed to SDTIN and writes a JSON blob to STDOUT
+
+Test with:
 ```
 cd test_data
-docker run --rm -it -v $PWD:/data registry.gitlab.com/cgps/docker-kleborate python3 kleborate-runner.py -a /data/MGH78578.fasta.gz /data/Klebs_HS11286.fasta.gz /data/NTUH-K2044.fasta.gz -o /data/kleborate.out
+gunzip -c NTUH-K2044.fasta.gz | docker run --rm  -i kleborate
+{
+    "strain": "query",
+    "ST": "ST23",
+    "virulence_score": "4",
+    "Yersiniabactin": "ybt 2; ICEKp1",
+    "YbST": "326",
+    "Colibactin": "-",
+    "CbST": "0",
+    "Aerobactin": "iuc 2",
+    "AbST": "1",
+    "Salmochelin": "iro 5",
+    "SmST": "18-1LV",
+    "hypermucoidy": "rmpA;rmpA",
+    "wzi": "wzi1",
+    "K_locus": "KL1",
+    "K_locus_confidence": "Perfect",
+    "O_locus": "O1v2",
+    "O_locus_confidence": "Very high"
+}
 ```

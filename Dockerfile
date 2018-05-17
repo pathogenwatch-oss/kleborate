@@ -22,8 +22,6 @@ WORKDIR Kleborate
 
 CMD python3 kleborate-runner.py -h
 
-COPY src/cgps-kleborate.py Kleborate/
+COPY src/cgps-kleborate.py .
 
-WORKDIR Kleborate
-
-CMD python3 cgps-kleborate
+CMD cat > query.fna && python3 cgps-kleborate.py

@@ -1,19 +1,18 @@
 import sys
-import tempfile
-from Bio import SeqIO
-from subprocess import call
+import json
+from subprocess import Popen, PIPE
 
 """Script reads a FASTA from STDIN, and then runs Kleborate over it (FASTA is temporarily written to file). 
 The Kleborate results are reformatted for use by Pathogenwatch"""
 
-assembly = SeqIO.to_dict(SeqIO.parse(sys.stdin, 'fasta'))
+assembly_file = 'query.fna'
 
-with tempfile.NamedTemporaryFile() as assembly_file, tempfile.TemporaryDirectory() as temp_dir:
+# Run kleborate
+p = Popen(['./kleborate-runner.py', '-a', str(assembly_file), '-o', 'tmp.out', '-k'], stdout=PIPE)
+return_code = p.returncode
 
-    # Write the temp assembly
-    SeqIO.write(assembly, assembly_file, 'fasta')
+# Read result file and write as json blob
+header = p.stdout.readline().decode('UTF-8').rstrip().split('\t')[1:]
+result = p.stdout.readline().decode('UTF-8').rstrip().split('\t')[1:]
 
-    # Run kleborate
-    call(['kleborate-runner.py', '-a', str(assembly_file), '-o', str(temp_dir), '-k'])
-
-    # Read result file and write as json blob
+print(json.dumps(dict(zip(header, result)), indent=4), file=sys.stdout)
