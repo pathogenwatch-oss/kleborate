@@ -10,7 +10,6 @@ Test with:
 cd test_data
 gunzip -c NTUH-K2044.fasta.gz | docker run --rm  -i kleborate
 {
-    "strain": "query",
     "ST": "ST23",
     "virulence_score": "4",
     "Yersiniabactin": "ybt 2; ICEKp1",
