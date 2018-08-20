@@ -8,11 +8,11 @@ The Kleborate results are reformatted for use by Pathogenwatch"""
 assembly_file = 'query.fna'
 
 # Run kleborate
-p = Popen(['./kleborate-runner.py', '-a', str(assembly_file), '-o', 'tmp.out', '-k'], stdout=PIPE)
+p = Popen(['./kleborate-runner.py', '-a', str(assembly_file), '-o', '/tmp/tmp.out', '-k'], stdout=PIPE)
 return_code = p.returncode
 
 # Read result file and write as json blob
 header = p.stdout.readline().decode('UTF-8').rstrip().split('\t')[1:]
 result = p.stdout.readline().decode('UTF-8').rstrip().split('\t')[1:]
 
-print(json.dumps(dict(zip(header, result)), indent=4), file=sys.stdout)
+print(json.dumps(dict(zip(header, result)), separators=(',', ':')), file=sys.stdout)

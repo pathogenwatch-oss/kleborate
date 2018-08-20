@@ -8,7 +8,7 @@ Takes a FASTA file streamed to SDTIN and writes a JSON blob to STDOUT
 Test with:
 ```
 cd test_data
-gunzip -c NTUH-K2044.fasta.gz | docker run --rm  -i kleborate
+gunzip -c NTUH-K2044.fasta.gz | docker run --rm  -i registry.gitlab.com/cgps/cgps-kleborate
 {
     "ST": "ST23",
     "virulence_score": "4",

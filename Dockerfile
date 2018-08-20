@@ -28,7 +28,7 @@ RUN ln -sf /usr/bin/python3.6 /usr/bin/python
 
 WORKDIR Kleborate
 
-CMD python3 kleborate-runner.py -h
+#CMD python3 kleborate-runner.py -h
 
 COPY src/cgps-kleborate.py .
 
