@@ -32,4 +32,4 @@ WORKDIR Kleborate
 
 COPY src/cgps-kleborate.py .
 
-CMD cat > query.fna && python3 cgps-kleborate.py
+CMD cat > /tmp/query.fna && python3 cgps-kleborate.py /tmp/query.fna
