@@ -34,7 +34,8 @@ for file in glob.glob(input_dir + '/*.jsn'):
 
 fields = ['ST', 'virulence_score', 'Yersiniabactin', 'YbST', 'Colibactin', 'CbST', 'Aerobactin', 'AbST',
           'Salmochelin', 'SmST', 'hypermucoidy', 'wzi', 'K_locus', 'K_locus_confidence', 'O_locus',
-          'O_locus_confidence']
+          'O_locus_confidence', 'AGly', 'Col', 'Fcyn', 'Flq', 'Gly', 'MLS', 'Ntmdz', 'Phe', 'Rif', 'Sul', 'Tet', 'Tmt',
+          'Bla', 'Bla_Carb', 'Bla_ESBL', 'Bla_ESBL_inhR', 'Bla_broad', 'Bla_broad_inhR']
 
 header = ','.join(fields)
 

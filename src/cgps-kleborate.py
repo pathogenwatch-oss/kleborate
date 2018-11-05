@@ -8,7 +8,7 @@ The Kleborate results are reformatted for use by Pathogenwatch"""
 assembly_file = sys.argv[1]
 
 # Run kleborate
-p = Popen(['./kleborate-runner.py', '-a', str(assembly_file), '-o', '/tmp/tmp.out', '-k'], stdout=PIPE)
+p = Popen(['./kleborate-runner.py', '-a', str(assembly_file), '-o', '/tmp/tmp.out', '--all'], stdout=PIPE)
 return_code = p.returncode
 
 # Read result file and write as json blob

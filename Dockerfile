@@ -17,6 +17,10 @@ RUN mkdir /blast \
     && cd .. \
     && rm -rf /blast
 
+RUN curl -L https://github.com/marbl/Mash/releases/download/v2.1/mash-Linux64-v2.1.tar | tar -x \
+    && mv mash-*/mash /usr/bin/ \
+    && rm -rf mash-Linux*
+
 #ENV PATH="/blast/:$PATH"
 
 RUN git config --global core.autocrlf input \
