@@ -1,12 +1,14 @@
+import glob
 import os
 import sys
-import glob
+from collections import OrderedDict
+
 import jsonpickle
 
 """Given a directory of Kleborate JSON output, produces a CSV with the first column as filename"""
 
 input_dir = sys.argv[1]
-nameToKlebMap = dict()
+nameToKlebMap = OrderedDict()
 
 for file in glob.glob(input_dir + '/*.jsn'):
     name = os.path.basename(file).replace('_contigs.fa.kleborate.jsn', '')
@@ -32,9 +34,43 @@ for file in glob.glob(input_dir + '/*.jsn'):
     "O_locus_confidence": "Good"
 """
 
-fields = ['ST', 'virulence_score', 'Yersiniabactin', 'YbST', 'Colibactin', 'CbST', 'Aerobactin', 'AbST',
-          'Salmochelin', 'SmST', 'hypermucoidy', 'wzi', 'K_locus', 'K_locus_confidence', 'O_locus',
-          'O_locus_confidence']
+fields = ['species',
+          'ST',
+          'virulence_score',
+          'resistance_score',
+          'Yersiniabactin',
+          'YbST',
+          'Colibactin',
+          'CbST',
+          'Aerobactin',
+          'AbST',
+          'Salmochelin',
+          'SmST',
+          'rmpA',
+          'rmpA2'
+          'wzi',
+          'K_locus',
+          'K_locus_confidence',
+          'O_locus',
+          'O_locus_confidence',
+          'AGly',
+          'Col',
+          'Fcyn',
+          'Flq',
+          'Gly',
+          'MLS',
+          'Ntmdz',
+          'Phe',
+          'Rif',
+          'Sul',
+          'Tet',
+          'Tmt',
+          'Bla',
+          'Bla_Carb',
+          'Bla_ESBL',
+          'Bla_ESBL_inhR',
+          'Bla_broad',
+          'Bla_broad_inhR']
 
 header = ','.join(fields)
 
