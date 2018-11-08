@@ -36,4 +36,4 @@ WORKDIR Kleborate
 
 COPY src/cgps-kleborate.py .
 
-CMD cat > /tmp/query.fna && echo "Beginning Kleborate" && python3 cgps-kleborate.py /tmp/query.fna
+CMD cat > /tmp/query.fna && python3 cgps-kleborate.py /tmp/query.fna
