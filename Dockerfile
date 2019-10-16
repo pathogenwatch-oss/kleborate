@@ -28,7 +28,7 @@ RUN git config --global core.autocrlf input \
 
 RUN pip3 install biopython
 
-RUN ln -sf /usr/bin/python3.6 /usr/bin/python
+RUN ln -sf /usr/bin/python3.7 /usr/bin/python
 
 WORKDIR Kleborate
 
