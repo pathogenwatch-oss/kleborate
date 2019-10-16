@@ -12,8 +12,8 @@ RUN apt-get update \
 
 RUN mkdir /blast \
     && cd /blast \
-    && curl ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-x64-linux.tar.gz | tar -xz \
-    && mv ncbi-blast-2.2.30+/bin/* /usr/bin/ \
+    && curl ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-x64-linux.tar.gz | tar -xz \
+    && mv ncbi-blast-2.9.0+/bin/* /usr/bin/ \
     && cd .. \
     && rm -rf /blast
 
