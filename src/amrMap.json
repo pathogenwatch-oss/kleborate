@@ -1,0 +1,122 @@
+[
+  {
+    "key": "AGS",
+    "kleborateCode": "AGly",
+    "name": "Aminoglycosides",
+    "type": "Aminoglycosides"
+  },
+  {
+    "key": "CST",
+    "kleborateCode": "Col",
+    "name": "Colistin",
+    "type": "Colistin"
+  },
+  {
+    "key": "FOF",
+    "kleborateCode": "Fcyn",
+    "name": "Fosfomycin",
+    "type": "Phosphonic Acid"
+  },
+  {
+    "key": "FLQ",
+    "kleborateCode": "Flq",
+    "name": "Fluoroquinolones",
+    "type": "Fluoroquinolones"
+  },
+  {
+    "key": "GPA",
+    "kleborateCode": "Gly",
+    "name": "Glycopeptides",
+    "type": "Glycopeptides"
+  },
+  {
+    "key": "MAC",
+    "kleborateCode": "MLS",
+    "name": "Macrolides",
+    "type": "Macrolides"
+  },
+  {
+    "key": "NIM",
+    "kleborateCode": "Ntmdz",
+    "name": "Nitroimidazoles",
+    "type": "Nitroimidazoles"
+  },
+  {
+    "key": "PHE",
+    "kleborateCode": "Phe",
+    "name": "Phenicols",
+    "type": "Phenicols"
+  },
+  {
+    "key": "RIF",
+    "kleborateCode": "Rif",
+    "name": "Rifampicin",
+    "type": "Rifamycin"
+  },
+  {
+    "key": "SMX",
+    "kleborateCode": "Sul",
+    "name": "Sulfonamides",
+    "type": "Sulfonamides"
+  },
+  {
+    "key": "TCY",
+    "kleborateCode": "Tet",
+    "name": "Tetracycline",
+    "type": "Tetracyclines"
+  },
+  {
+    "key": "TGC",
+    "kleborateCode": "Tgc",
+    "name": "Tigecycline",
+    "type": "Glycylcycline"
+  },
+  {
+    "key": "TMP",
+    "kleborateCode": "Tmt",
+    "name": "Trimethoprim",
+    "type": "Diaminopyrimidine"
+  },
+  {
+    "key": "BLA",
+    "kleborateCode": "Bla",
+    "name": "Beta-lactams",
+    "type": "Beta-Lactams"
+  },
+  {
+    "key": "CBP",
+    "kleborateCode": "Bla_Carb",
+    "name": "Carbapenems",
+    "type": "Carbapenems"
+  },
+  {
+    "key": "EBL",
+    "kleborateCode": "Bla_ESBL",
+    "name": "ESBLs",
+    "type": "Extended Spectrum Beta-Lactams"
+  },
+  {
+    "key": "EBI",
+    "kleborateCode": "Bla_ESBL_inhR",
+    "name": "ESBL Inhibitors",
+    "type": "ESBL Inhibitors"
+  },
+  {
+    "key": "CEP",
+    "kleborateCode": "Bla_broad",
+    "name": "Broad-Spectrum Cephalosporins",
+    "type": "Broad-Spectrum Cephalosporins"
+  },
+  {
+    "key": "BBI",
+    "kleborateCode": "Bla_broad_inhR",
+    "name": "BSBL Inhibitors",
+    "type": "Broad-Spectrum Beta-Lactam Inhibitors"
+  },
+  {
+    "key": "OMPK",
+    "kleborateCode": "Omp",
+    "name": "OmpK35/OmpK36",
+    "type": "OmpK35/OmpK36 Variants"
+  }
+]
