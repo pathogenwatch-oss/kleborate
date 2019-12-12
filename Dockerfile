@@ -36,4 +36,6 @@ WORKDIR Kleborate
 
 COPY src/cgps-kleborate.py .
 
+COPY src/amrMap.json .
+
 CMD cat > /tmp/query.fna && python3 cgps-kleborate.py /tmp/query.fna

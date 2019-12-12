@@ -93,25 +93,25 @@
     "key": "EBL",
     "kleborateCode": "Bla_ESBL",
     "name": "ESBLs",
-    "type": "Extended Spectrum Beta-Lactams"
+    "type": "Extended spectrum beta-lactams"
   },
   {
     "key": "EBI",
     "kleborateCode": "Bla_ESBL_inhR",
-    "name": "ESBL Inhibitors",
-    "type": "ESBL Inhibitors"
+    "name": "ESBL+Inhibitors",
+    "type": "ESBL and inhibitor resistance"
   },
   {
-    "key": "CEP",
+    "key": "BSBL",
     "kleborateCode": "Bla_broad",
-    "name": "Broad-Spectrum Cephalosporins",
-    "type": "Broad-Spectrum Cephalosporins"
+    "name": "Beta-lactams (broad)",
+    "type": "Beta-lactams (broad)"
   },
   {
     "key": "BBI",
     "kleborateCode": "Bla_broad_inhR",
-    "name": "BSBL Inhibitors",
-    "type": "Broad-Spectrum Beta-Lactam Inhibitors"
+    "name": "BSBL+Inhibitors",
+    "type": "BSBL and inhibitor resistance"
   },
   {
     "key": "OMPK",

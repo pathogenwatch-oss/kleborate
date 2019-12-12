@@ -49,5 +49,5 @@ for i in range(19, len(result)):
     output['amr'][am_record['key']] = am_record
     output['csv'].append({'set': 'amr', 'field': am_record['key'], 'name': am_record['kleborateCode']})
 
-    # print(json.dumps(OrderedDict(zip(header, result)), separators=(',', ':')), file=sys.stdout)
-    print(json.dumps(output, separators=(',', ':')), file=sys.stdout)
+# print(json.dumps(OrderedDict(zip(header, result)), separators=(',', ':')), file=sys.stdout)
+print(json.dumps(output, separators=(',', ':')), file=sys.stdout)
