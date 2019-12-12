@@ -1,0 +1,364 @@
+{
+  "amr": {
+    "AGS": {
+      "key": "AGS",
+      "kleborateCode": "AGly",
+      "name": "Aminoglycosides",
+      "type": "Aminoglycosides",
+      "match": "Aac3-IId*?;AadA2^;RmtB;StrA^;StrB"
+    },
+    "CST": {
+      "key": "CST",
+      "kleborateCode": "Col",
+      "name": "Colistin",
+      "type": "Colistin",
+      "match": "PmrB-10%"
+    },
+    "FOF": {
+      "key": "FOF",
+      "kleborateCode": "Fcyn",
+      "name": "Fosfomycin",
+      "type": "Phosphonic Acid",
+      "match": "-"
+    },
+    "FLQ": {
+      "key": "FLQ",
+      "kleborateCode": "Flq",
+      "name": "Fluoroquinolones",
+      "type": "Fluoroquinolones",
+      "match": "GyrA-83I;ParC-80I"
+    },
+    "GPA": {
+      "key": "GPA",
+      "kleborateCode": "Gly",
+      "name": "Glycopeptides",
+      "type": "Glycopeptides",
+      "match": "-"
+    },
+    "MAC": {
+      "key": "MAC",
+      "kleborateCode": "MLS",
+      "name": "Macrolides",
+      "type": "Macrolides",
+      "match": "-"
+    },
+    "NIM": {
+      "key": "NIM",
+      "kleborateCode": "Ntmdz",
+      "name": "Nitroimidazoles",
+      "type": "Nitroimidazoles",
+      "match": "-"
+    },
+    "PHE": {
+      "key": "PHE",
+      "kleborateCode": "Phe",
+      "name": "Phenicols",
+      "type": "Phenicols",
+      "match": "-"
+    },
+    "RIF": {
+      "key": "RIF",
+      "kleborateCode": "Rif",
+      "name": "Rifampicin",
+      "type": "Rifamycin",
+      "match": "-"
+    },
+    "SMX": {
+      "key": "SMX",
+      "kleborateCode": "Sul",
+      "name": "Sulfonamides",
+      "type": "Sulfonamides",
+      "match": "SulII"
+    },
+    "TCY": {
+      "key": "TCY",
+      "kleborateCode": "Tet",
+      "name": "Tetracycline",
+      "type": "Tetracyclines",
+      "match": "TetG"
+    },
+    "TGC": {
+      "key": "TGC",
+      "kleborateCode": "Tgc",
+      "name": "Tigecycline",
+      "type": "Glycylcycline",
+      "match": "-"
+    },
+    "TMP": {
+      "key": "TMP",
+      "kleborateCode": "Tmt",
+      "name": "Trimethoprim",
+      "type": "Diaminopyrimidine",
+      "match": "DfrA12?"
+    },
+    "OMPK": {
+      "key": "OMPK",
+      "kleborateCode": "Omp",
+      "name": "OmpK35/OmpK36",
+      "type": "OmpK35/OmpK36 Variants",
+      "match": "OmpK35-40%"
+    },
+    "BLA": {
+      "key": "BLA",
+      "kleborateCode": "Bla",
+      "name": "Beta-lactams",
+      "type": "Beta-Lactams",
+      "match": "TEM-1D^;TEM-1D^;TEM-1D^"
+    },
+    "CBP": {
+      "key": "CBP",
+      "kleborateCode": "Bla_Carb",
+      "name": "Carbapenems",
+      "type": "Carbapenems",
+      "match": "KPC-2"
+    },
+    "EBL": {
+      "key": "EBL",
+      "kleborateCode": "Bla_ESBL",
+      "name": "ESBLs",
+      "type": "Extended spectrum beta-lactams",
+      "match": "CTX-M-14;CTX-M-14"
+    },
+    "EBI": {
+      "key": "EBI",
+      "kleborateCode": "Bla_ESBL_inhR",
+      "name": "ESBL+Inhibitors",
+      "type": "ESBL and inhibitor resistance",
+      "match": "-"
+    },
+    "BSBL": {
+      "key": "BSBL",
+      "kleborateCode": "Bla_broad",
+      "name": "Beta-lactams (broad)",
+      "type": "Beta-lactams (broad)",
+      "match": "SHV-11"
+    },
+    "BBI": {
+      "key": "BBI",
+      "kleborateCode": "Bla_broad_inhR",
+      "name": "BSBL+Inhibitors",
+      "type": "BSBL and inhibitor resistance",
+      "match": "-"
+    }
+  },
+  "virulence": {
+    "Yersiniabactin": "ybt 9; ICEKp3",
+    "YbST": "15",
+    "Colibactin": "-",
+    "CbST": "0",
+    "Aerobactin": "-",
+    "AbST": "0",
+    "Salmochelin": "-",
+    "SmST": "0",
+    "rmpA": "-",
+    "rmpA2": "-"
+  },
+  "typing": {
+    "wzi": "wzi74",
+    "K_locus": "KL103",
+    "K_locus_confidence": "Very high",
+    "O_locus": "O2v1",
+    "O_locus_confidence": "Very high"
+  },
+  "csv": [
+    {
+      "set": "",
+      "field": "species",
+      "name": "species"
+    },
+    {
+      "set": "",
+      "field": "ST",
+      "name": "ST"
+    },
+    {
+      "set": "",
+      "field": "virulence_score",
+      "name": "virulence_score"
+    },
+    {
+      "set": "",
+      "field": "resistance_score",
+      "name": "resistance_score"
+    },
+    {
+      "set": "virulence",
+      "field": "Yersiniabactin",
+      "name": "Yersiniabactin"
+    },
+    {
+      "set": "virulence",
+      "field": "YbST",
+      "name": "YbST"
+    },
+    {
+      "set": "virulence",
+      "field": "Colibactin",
+      "name": "Colibactin"
+    },
+    {
+      "set": "virulence",
+      "field": "CbST",
+      "name": "CbST"
+    },
+    {
+      "set": "virulence",
+      "field": "Aerobactin",
+      "name": "Aerobactin"
+    },
+    {
+      "set": "virulence",
+      "field": "AbST",
+      "name": "AbST"
+    },
+    {
+      "set": "virulence",
+      "field": "Salmochelin",
+      "name": "Salmochelin"
+    },
+    {
+      "set": "virulence",
+      "field": "SmST",
+      "name": "SmST"
+    },
+    {
+      "set": "virulence",
+      "field": "rmpA",
+      "name": "rmpA"
+    },
+    {
+      "set": "virulence",
+      "field": "rmpA2",
+      "name": "rmpA2"
+    },
+    {
+      "set": "typing",
+      "field": "wzi",
+      "name": "wzi"
+    },
+    {
+      "set": "typing",
+      "field": "K_locus",
+      "name": "K_locus"
+    },
+    {
+      "set": "typing",
+      "field": "K_locus_confidence",
+      "name": "K_locus_confidence"
+    },
+    {
+      "set": "typing",
+      "field": "O_locus",
+      "name": "O_locus"
+    },
+    {
+      "set": "typing",
+      "field": "O_locus_confidence",
+      "name": "O_locus_confidence"
+    },
+    {
+      "set": "amr",
+      "field": "AGS",
+      "name": "AGly"
+    },
+    {
+      "set": "amr",
+      "field": "CST",
+      "name": "Col"
+    },
+    {
+      "set": "amr",
+      "field": "FOF",
+      "name": "Fcyn"
+    },
+    {
+      "set": "amr",
+      "field": "FLQ",
+      "name": "Flq"
+    },
+    {
+      "set": "amr",
+      "field": "GPA",
+      "name": "Gly"
+    },
+    {
+      "set": "amr",
+      "field": "MAC",
+      "name": "MLS"
+    },
+    {
+      "set": "amr",
+      "field": "NIM",
+      "name": "Ntmdz"
+    },
+    {
+      "set": "amr",
+      "field": "PHE",
+      "name": "Phe"
+    },
+    {
+      "set": "amr",
+      "field": "RIF",
+      "name": "Rif"
+    },
+    {
+      "set": "amr",
+      "field": "SMX",
+      "name": "Sul"
+    },
+    {
+      "set": "amr",
+      "field": "TCY",
+      "name": "Tet"
+    },
+    {
+      "set": "amr",
+      "field": "TGC",
+      "name": "Tgc"
+    },
+    {
+      "set": "amr",
+      "field": "TMP",
+      "name": "Tmt"
+    },
+    {
+      "set": "amr",
+      "field": "OMPK",
+      "name": "Omp"
+    },
+    {
+      "set": "amr",
+      "field": "BLA",
+      "name": "Bla"
+    },
+    {
+      "set": "amr",
+      "field": "CBP",
+      "name": "Bla_Carb"
+    },
+    {
+      "set": "amr",
+      "field": "EBL",
+      "name": "Bla_ESBL"
+    },
+    {
+      "set": "amr",
+      "field": "EBI",
+      "name": "Bla_ESBL_inhR"
+    },
+    {
+      "set": "amr",
+      "field": "BSBL",
+      "name": "Bla_broad"
+    },
+    {
+      "set": "amr",
+      "field": "BBI",
+      "name": "Bla_broad_inhR"
+    }
+  ],
+  "species": "Klebsiella pneumoniae",
+  "ST": "ST11",
+  "virulence_score": "1",
+  "resistance_score": "3"
+}
