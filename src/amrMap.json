@@ -3,120 +3,133 @@
     "key": "AGS",
     "kleborateCode": "AGly",
     "name": "Aminoglycosides",
-    "type": "Aminoglycosides"
+    "type": "Aminoglycosides",
+    "classes": ["acquired"]
   },
   {
     "key": "CST",
     "kleborateCode": "Col",
     "name": "Colistin",
-    "type": "Colistin"
+    "type": "Colistin",
+    "classes": ["acquired", "mutations"]
   },
   {
     "key": "FOF",
     "kleborateCode": "Fcyn",
     "name": "Fosfomycin",
-    "type": "Phosphonic Acid"
+    "type": "Phosphonic Acid",
+    "classes": ["acquired"]
   },
   {
     "key": "FLQ",
     "kleborateCode": "Flq",
     "name": "Fluoroquinolones",
-    "type": "Fluoroquinolones"
+    "type": "Fluoroquinolones",
+    "classes": ["acquired", "mutations"]
   },
   {
     "key": "GPA",
     "kleborateCode": "Gly",
     "name": "Glycopeptides",
-    "type": "Glycopeptides"
+    "type": "Glycopeptides",
+    "classes": ["acquired"]
   },
   {
     "key": "MAC",
     "kleborateCode": "MLS",
     "name": "Macrolides",
-    "type": "Macrolides"
-  },
-  {
-    "key": "NIM",
-    "kleborateCode": "Ntmdz",
-    "name": "Nitroimidazoles",
-    "type": "Nitroimidazoles"
+    "type": "Macrolides",
+    "classes": ["acquired"]
   },
   {
     "key": "PHE",
     "kleborateCode": "Phe",
     "name": "Phenicols",
-    "type": "Phenicols"
+    "type": "Phenicols",
+    "classes": ["acquired"]
   },
   {
     "key": "RIF",
     "kleborateCode": "Rif",
     "name": "Rifampicin",
-    "type": "Rifamycin"
+    "type": "Rifamycin",
+    "classes": ["acquired"]
   },
   {
     "key": "SMX",
     "kleborateCode": "Sul",
     "name": "Sulfonamides",
-    "type": "Sulfonamides"
+    "type": "Sulfonamides",
+    "classes": ["acquired"]
   },
   {
     "key": "TCY",
     "kleborateCode": "Tet",
     "name": "Tetracycline",
-    "type": "Tetracyclines"
+    "type": "Tetracyclines",
+    "classes": ["acquired"]
   },
   {
     "key": "TGC",
     "kleborateCode": "Tgc",
     "name": "Tigecycline",
-    "type": "Glycylcycline"
+    "type": "Glycylcycline",
+    "classes": ["acquired"]
   },
   {
     "key": "TMP",
     "kleborateCode": "Tmt",
     "name": "Trimethoprim",
-    "type": "Diaminopyrimidine"
+    "type": "Diaminopyrimidine",
+    "classes": ["acquired"]
   },
   {
     "key": "BLA",
     "kleborateCode": "Bla",
     "name": "Beta-lactams",
-    "type": "Beta-Lactams"
+    "type": "Beta-Lactams",
+    "classes": ["acquired", "chr"]
   },
   {
-    "key": "CBP",
-    "kleborateCode": "Bla_Carb",
-    "name": "Carbapenems",
-    "type": "Carbapenems"
+    "key": "BLI",
+    "kleborateCode": "Bla_inhR",
+    "name": "Beta-lactams+Inhibitor",
+    "type": "Beta-Lactams and inhibitor resistance",
+    "classes": ["acquired"]
   },
   {
     "key": "EBL",
     "kleborateCode": "Bla_ESBL",
     "name": "ESBLs",
-    "type": "Extended spectrum beta-lactams"
+    "type": "Extended spectrum beta-lactams",
+    "classes": ["acquired"]
   },
   {
     "key": "EBI",
     "kleborateCode": "Bla_ESBL_inhR",
     "name": "ESBL+Inhibitors",
-    "type": "ESBL and inhibitor resistance"
+    "type": "ESBL and inhibitor resistance",
+    "classes": ["acquired"]
   },
   {
-    "key": "BSBL",
-    "kleborateCode": "Bla_broad",
-    "name": "Beta-lactams (broad)",
-    "type": "Beta-lactams (broad)"
+    "key": "CBP",
+    "kleborateCode": "Bla_Carb",
+    "name": "Carbapenems",
+    "type": "Carbapenems",
+    "classes": ["acquired"]
   },
   {
-    "key": "BBI",
-    "kleborateCode": "Bla_broad_inhR",
-    "name": "BSBL+Inhibitors",
-    "type": "BSBL and inhibitor resistance"
+    "key": "SHVM",
+    "kleborateCode": "SHV",
+    "name": "Carbapenems",
+    "type": "Carbapenems",
+    "classes": ["mutations"]
   },
   {
     "key": "OMPK",
     "kleborateCode": "Omp",
     "name": "OmpK35/OmpK36",
-    "type": "OmpK35/OmpK36 Variants"
+    "type": "OmpK35/OmpK36 Variants",
+    "classes": ["mutations"]
   }
 ]

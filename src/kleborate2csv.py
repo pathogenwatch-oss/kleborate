@@ -34,6 +34,8 @@ for file in glob.glob(input_dir + '/*.jsn'):
     "O_locus_confidence": "Good"
 """
 
+
+header = ','.join(fields)
 fields = ['species',
           'ST',
           'virulence_score',
@@ -46,33 +48,38 @@ fields = ['species',
           'AbST',
           'Salmochelin',
           'SmST',
-          'rmpA',
+          'RmpADC',
+          'RmST',
           'rmpA2'
           'wzi',
           'K_locus',
           'K_locus_confidence',
           'O_locus',
           'O_locus_confidence',
-          'AGly',
-          'Col',
-          'Fcyn',
-          'Flq',
-          'Gly',
-          'MLS',
-          'Ntmdz',
-          'Phe',
-          'Rif',
-          'Sul',
-          'Tet',
-          'Tmt',
-          'Bla',
-          'Bla_Carb',
-          'Bla_ESBL',
-          'Bla_ESBL_inhR',
-          'Bla_broad',
-          'Bla_broad_inhR']
-
-header = ','.join(fields)
+          'AGly_acquired',
+          'Col_acquired',
+          'Fcyn_acquired',
+          'Flq_acquired',
+          'Gly_acquired',
+          'MLS_acquired',
+          'Phe_acquired',
+          'Rif_acquired',
+          'Sul_acquired',
+          'Tet_acquired',
+          'Tgc_acquired',
+          'Tmt_acquired',
+          'Bla_acquired',
+          'Bla_inhR_acquired'
+          'Bla_ESBL_acquired',
+          'Bla_ESBL_inhR_acquired',
+          'Bla_Carb_acquired',
+          'Bla_chr',
+          'SHV_mutations',
+          'Omp_mutations',
+          'Col_mutations',
+          'truncated_resistance_hits',
+          'spurious_resistance_hits'
+          ]
 
 print(header, file=sys.stdout)
 for name, data in nameToKlebMap.items():
