@@ -1,5 +1,8 @@
 FROM ubuntu:18.04
 
+ARG KLEBORATE
+ENV KLEBORATE=${KLEBORATE:-v2.0.0}
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     curl \
@@ -24,7 +27,9 @@ RUN curl -L https://github.com/marbl/Mash/releases/download/v2.1/mash-Linux64-v2
 #ENV PATH="/blast/:$PATH"
 
 RUN git config --global core.autocrlf input \
-    && git clone --recursive https://github.com/katholt/Kleborate.git
+    && echo "$KLEBORATE" \
+    && git clone --recursive --depth 1 --branch $KLEBORATE https://github.com/katholt/Kleborate.git \
+    && echo "$KLEBORATE" > /Kleborate/version
 
 RUN pip3 install biopython
 
