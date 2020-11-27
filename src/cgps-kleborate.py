@@ -15,7 +15,7 @@ for record in amr_list:
         amr_dict[record['kleborateCode'] + '_' + extension] = record
 
 with open("/Kleborate/version", 'r') as v_fh:
-    version = v_fh.readline()
+    version = v_fh.readline().strip()
 
 assembly_file = sys.argv[1]
 
@@ -28,9 +28,9 @@ header = p.stdout.readline().decode('UTF-8').rstrip().split('\t')[1:]
 result = p.stdout.readline().decode('UTF-8').rstrip().split('\t')[1:]
 
 # (species, st, virulence_score, resistance_score) = result[0:4]
-# (yersiniabactin, ybst, colibactin, cbst, aerobactin, abst, salmochelin, smst, rmpa,rmpa2) = result[4:14]
-# (wzi, klocus, klocus_conf, olocus, olocus_conf) = result[14:19]
-# amr = result[19:]
+# (yersiniabactin, ybst, colibactin, cbst, aerobactin, abst, salmochelin, smst, rmpabd, rmST, rmpa2) = result[4:15]
+# (wzi, klocus, klocus_conf, olocus, olocus_conf) = result[15:20]
+# amr = result[20:]
 amr_profile = dict()
 amr_profile['profile'] = dict()
 amr_profile['classes'] = dict()

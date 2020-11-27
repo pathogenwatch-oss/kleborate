@@ -121,8 +121,8 @@
   {
     "key": "SHVM",
     "kleborateCode": "SHV",
-    "name": "Carbapenems",
-    "type": "Carbapenems",
+    "name": "SHV variants,
+    "type": "Other",
     "classes": ["mutations"]
   },
   {
