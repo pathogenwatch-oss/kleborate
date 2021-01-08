@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 ARG KLEBORATE
-ENV KLEBORATE=${KLEBORATE:-v2.0.0}
+ENV KLEBORATE=${KLEBORATE:-v2.0.1}
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
