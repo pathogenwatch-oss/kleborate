@@ -1,6 +1,6 @@
 import json
+import subprocess
 import sys
-from subprocess import Popen, PIPE
 
 """Script reads a FASTA from STDIN, and then runs Kleborate over it (FASTA is temporarily written to file). 
 The Kleborate results are reformatted for use by Pathogenwatch"""
@@ -20,8 +20,9 @@ with open("/Kleborate/version", 'r') as v_fh:
 assembly_file = sys.argv[1]
 
 # Run kleborate
-p = Popen(['./kleborate-runner.py', '-a', str(assembly_file), '-o', '/tmp/tmp.out', '--all'], stdout=PIPE)
-return_code = p.returncode
+complete = subprocess.run(['./kleborate-runner.py', '-a', str(assembly_file), '-o', '/tmp/tmp.out', '--all'],
+                          check=True,
+                          capture_output=True)
 
 # Read result file and write as json blob
 with open('/tmp/tmp.out', 'r') as result_fh:
@@ -42,7 +43,6 @@ output['virulence'] = dict()
 output['typing'] = dict()
 output['other'] = dict()
 output['csv'] = list()
-
 
 for i in range(0, 13):
     output[header[i]] = result[i]
