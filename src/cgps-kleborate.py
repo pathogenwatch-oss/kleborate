@@ -211,5 +211,4 @@ for i in range(0, len(other_fields)):
     output['csv'].append({'set': 'other', 'field': other_fields[i], 'name': other_fields[i]})
     column_counter += 1
 
-# print(json.dumps(OrderedDict(zip(header, result)), separators=(',', ':')), file=sys.stdout)
 print(json.dumps(output, separators=(',', ':')), file=sys.stdout)
