@@ -139,9 +139,16 @@ with open("/Kleborate/version", 'r') as v_fh:
 assembly_file = sys.argv[1]
 
 # Run kleborate
-complete = subprocess.run(['./kleborate-runner.py', '-a', str(assembly_file), '-o', '/tmp/tmp.out', '--all'],
-                          check=True,
-                          capture_output=True)
+complete = subprocess.run(
+    [
+        './kleborate-runner.py',
+        '-a', str(assembly_file),
+        '-o', '/tmp/tmp.out',
+        '--all'
+    ],
+    check=True,
+    capture_output=True
+)
 
 # Read result file and write as json blob
 with open('/tmp/tmp.out', 'r') as result_fh:
@@ -194,7 +201,8 @@ for i in range(0, len(classes_fields)):
         if amr_profile['profile'][tag]['matches'] == '-':
             amr_profile['profile'][tag]['matches'] = result[i]
         else:
-            amr_profile['profile'][tag]['matches'] = amr_profile['profile'][tag]['matches'] + ';' + result[column_counter]
+            amr_profile['profile'][tag]['matches'] = amr_profile['profile'][tag]['matches'] + ';' + result[
+                column_counter]
     output['csv'].append({'set': 'amr', 'field': classes_fields[i], 'name': classes_fields[i]})
     column_counter += 1
 
