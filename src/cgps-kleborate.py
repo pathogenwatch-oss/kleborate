@@ -133,25 +133,27 @@ for record in amr_list:
     for extension in record['classes']:
         amr_dict[record['kleborateCode'] + '_' + extension] = record
 
-with open("/Kleborate/version", 'r') as v_fh:
-    version = v_fh.readline().strip()
+# with open("/Kleborate/version", 'r') as v_fh:
+#     version = v_fh.readline().strip()
 
-assembly_file = sys.argv[1]
+version = 'v2.2.0'
+# assembly_file = sys.argv[1]
 
 # Run kleborate
-complete = subprocess.run(
-    [
-        './kleborate-runner.py',
-        '-a', str(assembly_file),
-        '-o', '/tmp/tmp.out',
-        '--all'
-    ],
-    check=True,
-    capture_output=True
-)
+# complete = subprocess.run(
+#     [
+#         './kleborate-runner.py',
+#         '-a', str(assembly_file),
+#         '-o', '/tmp/tmp.out',
+#         '--all'
+#     ],
+#     check=True,
+#     capture_output=True
+# )
 
 # Read result file and write as json blob
-with open('/tmp/tmp.out', 'r') as result_fh:
+# with open('/tmp/tmp.out', 'r') as result_fh:
+with open('../DRR076945.csv', 'r') as result_fh:
     header = result_fh.readline().strip().split('\t')
     result = result_fh.readline().strip().split('\t')
 
@@ -170,7 +172,7 @@ for i in range(0, len(top_level_fields)):
     output[top_level_fields[i]] = result[i]
     output['csv'].append({'set': '', 'field': top_level_fields[i], 'name': top_level_fields[i]})
 
-column_counter = len(top_level_fields) - 1
+column_counter = len(top_level_fields)
 
 for i in range(0, len(virulence_fields)):
     output['virulence'][virulence_fields[i]] = result[column_counter]
