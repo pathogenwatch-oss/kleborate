@@ -121,7 +121,7 @@ virulence_fields = kleborate_headers[14:25]
 classes_fields = kleborate_headers[38:60]
 trunc_res_hits_field = kleborate_headers[60]
 spur_res_hits_field = kleborate_headers[61]
-typing_fields = kleborate_headers[25:8]
+typing_fields = kleborate_headers[25:38]
 other_fields = kleborate_headers[62:]
 
 with open("amrMap.json", 'r') as js_fh:
