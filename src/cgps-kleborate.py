@@ -135,10 +135,10 @@ for record in amr_list:
 
 # with open("/Kleborate/version", 'r') as v_fh:
 #     version = v_fh.readline().strip()
-
-version = 'v2.2.0'
+#
 # assembly_file = sys.argv[1]
 
+version = 'vfoo'
 # Run kleborate
 # complete = subprocess.run(
 #     [
@@ -150,8 +150,8 @@ version = 'v2.2.0'
 #     check=True,
 #     capture_output=True
 # )
-
-# Read result file and write as json blob
+#
+# # Read result file and write as json blob
 # with open('/tmp/tmp.out', 'r') as result_fh:
 with open('../DRR076945.csv', 'r') as result_fh:
     header = result_fh.readline().strip().split('\t')
@@ -189,7 +189,7 @@ amr_cache = set()
 for i in range(0, len(classes_fields)):
     amr_profile['classes'][classes_fields[i]] = result[column_counter]
     phenotype = amr_dict[classes_fields[i]]
-    cache_index = i - 20
+    cache_index = i
     tag = phenotype['key']
     if tag not in amr_profile['profile'].keys():
         amr_cache.add(tag)
