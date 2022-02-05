@@ -117,11 +117,11 @@ kleborate_headers = [
 ]
 
 top_level_fields = kleborate_headers[0:14]
-virulence_fields = kleborate_headers[14:26]
+virulence_fields = kleborate_headers[14:25]
 classes_fields = kleborate_headers[38:60]
 trunc_res_hits_field = kleborate_headers[60]
 spur_res_hits_field = kleborate_headers[61]
-typing_fields = kleborate_headers[26:38]
+typing_fields = kleborate_headers[25:8]
 other_fields = kleborate_headers[62:]
 
 with open("amrMap.json", 'r') as js_fh:
@@ -152,8 +152,8 @@ complete = subprocess.run(
 
 # Read result file and write as json blob
 with open('/tmp/tmp.out', 'r') as result_fh:
-    header = result_fh.readline().strip().split('\t')[1:]
-    result = result_fh.readline().strip().split('\t')[1:]
+    header = result_fh.readline().strip().split('\t')
+    result = result_fh.readline().strip().split('\t')
 
 amr_profile = dict()
 amr_profile['profile'] = dict()
@@ -217,4 +217,5 @@ for i in range(0, len(other_fields)):
     output['csv'].append({'set': 'other', 'field': other_fields[i], 'name': other_fields[i]})
     column_counter += 1
 
+del output['strain']
 print(json.dumps(output, separators=(',', ':')), file=sys.stdout)
