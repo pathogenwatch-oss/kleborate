@@ -166,7 +166,6 @@ output['typing'] = dict()
 output['other'] = dict()
 output['csv'] = list()
 
-print(','.join(top_level_fields))
 for i in range(0, len(top_level_fields)):
     output[top_level_fields[i]] = result[i]
     output['csv'].append({'set': '', 'field': top_level_fields[i], 'name': top_level_fields[i]})
@@ -184,7 +183,6 @@ for i in range(0, len(typing_fields)):
     column_counter += 1
 
 amr_cache = set()
-print(','.join(classes_fields))
 
 for i in range(0, len(classes_fields)):
     amr_profile['classes'][classes_fields[i]] = result[column_counter]
