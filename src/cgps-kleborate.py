@@ -187,7 +187,6 @@ amr_cache = set()
 for i in range(0, len(classes_fields)):
     amr_profile['classes'][classes_fields[i]] = result[column_counter]
     phenotype = amr_dict[classes_fields[i]]
-    cache_index = i
     tag = phenotype['key']
     if tag not in amr_profile['profile'].keys():
         amr_cache.add(tag)
@@ -197,7 +196,7 @@ for i in range(0, len(classes_fields)):
     if result[i] != '-':
         amr_profile['profile'][tag]['resistant'] = True
         if amr_profile['profile'][tag]['matches'] == '-':
-            amr_profile['profile'][tag]['matches'] = result[i]
+            amr_profile['profile'][tag]['matches'] = result[column_counter]
         else:
             amr_profile['profile'][tag]['matches'] = amr_profile['profile'][tag]['matches'] + ';' + result[
                 column_counter]
