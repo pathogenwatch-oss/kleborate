@@ -93,7 +93,7 @@
   {
     "key": "BLI",
     "kleborateCode": "Bla_inhR",
-    "name": "Beta-lactams+Inhibitor",
+    "name": "Beta-lactams+Inhibitors",
     "type": "Beta-Lactams and inhibitor resistance",
     "classes": ["acquired"]
   },
@@ -107,7 +107,7 @@
   {
     "key": "EBI",
     "kleborateCode": "Bla_ESBL_inhR",
-    "name": "ESBL+Inhibitors",
+    "name": "ESBLs+Inhibitors",
     "type": "ESBL and inhibitor resistance",
     "classes": ["acquired"]
   },

@@ -143,7 +143,7 @@ complete = subprocess.run(
     [
         './kleborate-runner.py',
         '-a', str(assembly_file),
-        '-o', '/tmp/tmp.out',
+        '-o', '/tmp/tmp.csv',
         '--all'
     ],
     check=True,
@@ -151,7 +151,7 @@ complete = subprocess.run(
 )
 
 # Read result file and write as json blob
-with open('/tmp/tmp.out', 'r') as result_fh:
+with open('/tmp/tmp.csv', 'r') as result_fh:
     header = result_fh.readline().strip().split('\t')
     result = result_fh.readline().strip().split('\t')
 
@@ -193,7 +193,7 @@ for i in range(0, len(classes_fields)):
         amr_profile['profile'][tag] = phenotype
         amr_profile['profile'][tag]['resistant'] = False
         amr_profile['profile'][tag]['matches'] = '-'
-    if result[i] != '-':
+    if result[column_counter] != '-':
         amr_profile['profile'][tag]['resistant'] = True
         if amr_profile['profile'][tag]['matches'] == '-':
             amr_profile['profile'][tag]['matches'] = result[column_counter]
