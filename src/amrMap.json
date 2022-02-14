@@ -86,29 +86,29 @@
   {
     "key": "BLA",
     "kleborateCode": "Bla",
-    "name": "Beta-lactams",
-    "type": "Beta-Lactams",
+    "name": "Penicillins",
+    "type": "Penicillins",
     "classes": ["acquired", "chr"]
   },
   {
     "key": "BLI",
     "kleborateCode": "Bla_inhR",
-    "name": "Beta-lactams+Inhibitors",
-    "type": "Beta-Lactams and inhibitor resistance",
+    "name": "Penicillins with beta-lactamase inhibitors",
+    "type": "Penicillins with beta-lactamase inhibitors",
     "classes": ["acquired"]
   },
   {
     "key": "EBL",
     "kleborateCode": "Bla_ESBL",
-    "name": "ESBLs",
-    "type": "Extended spectrum beta-lactams",
+    "name": "Third generation cephalosporins",
+    "type": "Third generation cephalosporins",
     "classes": ["acquired"]
   },
   {
     "key": "EBI",
     "kleborateCode": "Bla_ESBL_inhR",
-    "name": "ESBLs+Inhibitors",
-    "type": "ESBL and inhibitor resistance",
+    "name": "Third generation cephalosporins with beta-lactamase inhibitors",
+    "type": "Third generation cephalosporins with beta-lactamase inhibitors",
     "classes": ["acquired"]
   },
   {
