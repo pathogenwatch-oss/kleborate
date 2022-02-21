@@ -100,14 +100,14 @@
   {
     "key": "EBL",
     "kleborateCode": "Bla_ESBL",
-    "name": "Third generation cephalosporins",
+    "name": "Cephalosporins (third generation)",
     "type": "Third generation cephalosporins",
     "classes": ["acquired"]
   },
   {
     "key": "EBI",
     "kleborateCode": "Bla_ESBL_inhR",
-    "name": "Third generation cephalosporins with beta-lactamase inhibitors",
+    "name": "Cephalosporins (third generation) with beta-lactamase inhibitors",
     "type": "Third generation cephalosporins with beta-lactamase inhibitors",
     "classes": ["acquired"]
   },
