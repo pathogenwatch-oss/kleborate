@@ -1,46 +1,52 @@
-FROM ubuntu:20.04
+FROM python:3.11-slim AS kleborate
+ARG KLEBORATE_VERSION
+ENV KLEBORATE_VERSION=${KLEBORATE_VERSION}
+ENV PYTHONDONTWRITEBYTECODE=1
 
-ARG KLEBORATE
-ENV KLEBORATE=${KLEBORATE:-v2.3.0}
+RUN apt update && \
+    apt install -y --no-install-recommends curl bzip2 &&  \
+    rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    curl \
-    git \
-    ca-certificates \
-    python3 \
-    python3-setuptools \
-    python3-pip \
-    && rm -rf /var/lib/apt/lists/*
+RUN curl -L "https://github.com/lh3/minimap2/releases/download/v2.28/minimap2-2.28_x64-linux.tar.bz2" | tar -jxvf - && \
+    mv minimap2-2.28_x64-linux/minimap2 /usr/local/bin/ && \
+    rm -rf minimap2-2.28_x64-linux
 
-RUN mkdir /blast \
-    && cd /blast \
-    && curl ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-x64-linux.tar.gz | tar -xz \
-    && mv ncbi-blast-2.9.0+/bin/* /usr/bin/ \
-    && cd .. \
-    && rm -rf /blast
+RUN curl -L https://github.com/marbl/Mash/releases/download/v2.3/mash-Linux64-v2.3.tar | tar xv \
+    && mv mash-Linux64-v2.3/mash /usr/bin/ \
+    && rm -rf mash-Linux64-v2.3
 
-RUN curl -L https://github.com/marbl/Mash/releases/download/v2.1/mash-Linux64-v2.1.tar | tar -x \
-    && mv mash-*/mash /usr/bin/ \
-    && rm -rf mash-Linux*
+RUN pip --disable-pip-version-check --no-cache-dir install kleborate==${KLEBORATE_VERSION}
 
-#ENV PATH="/blast/:$PATH"
+RUN mkdir /Kleborate
 
-RUN git config --global core.autocrlf input \
-    && echo "$KLEBORATE" \
-    && git clone --recursive --depth 1 --branch $KLEBORATE https://github.com/katholt/Kleborate.git \
-    && echo "$KLEBORATE" > /Kleborate/version
+RUN echo "${KLEBORATE_VERSION}" > /Kleborate/kleborate_version
 
-RUN pip3 install biopython
+WORKDIR /Kleborate
 
-RUN ln -sf /usr/bin/python3.7 /usr/bin/python
+ENTRYPOINT ["kleborate"]
 
-WORKDIR Kleborate
+FROM kleborate AS dev
 
-#CMD python3 kleborate-runner.py -h
+ENV PYTHONDONTWRITEBYTECODE=1
 
-COPY src/cgps-kleborate.py .
+RUN pip --disable-pip-version-check --no-cache-dir install typer[all]
 
-COPY src/amrMap.json .
+WORKDIR /Kleborate
 
-CMD cat > /tmp/query.fna && python3 cgps-kleborate.py /tmp/query.fna
+
+FROM dev AS prod
+
+ARG SPECIES=kpsc
+ARG CODE_VERSION=2
+ENV SPECIES=${SPECIES}
+ENV CODE_VERSION=${CODE_VERSION}
+
+RUN echo "${CODE_VERSION}" > /Kleborate/code_version
+
+WORKDIR /Kleborate
+
+COPY cgps-kleborate.py .
+
+COPY amrMap.json .
+
+ENTRYPOINT cat > /tmp/query.fna && python3 cgps-kleborate.py -k /Kleborate/kleborate_version -c /Kleborate/code_version -a /Kleborate/amrMap.json /tmp/query.fna ${SPECIES}
