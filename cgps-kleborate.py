@@ -32,7 +32,7 @@ modules = {
         "enterobacterales__species",
         "general__contig_stats",
         "klebsiella_oxytoca_complex__mlst",
-        "Klebsiella_pneumo_complex__mlst",
+        "klebsiella_pneumo_complex__mlst",
         "escherichia__mlst_achtman",
         "escherichia__mlst_pasteur",
         "klebsiella_pneumo_complex__kaptive",
@@ -96,7 +96,6 @@ def parse_kleborate(raw: dict[str, str], amr_dict: dict[str, dict[str, str]]) ->
             continue
         field_name = key.split("__")[-1]
         module_name = "__".join(key.split("__")[0:-1])
-        print(f"Key: {key}, Module: {module_name}, Field: {field_name}, Value: {value}", file=sys.stderr)
         for group in modules.keys():
             if module_name in modules[group]:
                 # Code here
@@ -106,7 +105,7 @@ def parse_kleborate(raw: dict[str, str], amr_dict: dict[str, dict[str, str]]) ->
                     if field_name in ["truncated_resistance_hits", "spurious_resistance_hits", "resistance_score",
                                       "num_resistance_genes", "num_resistance_classes"]:
                         result["amr"][field_name] = value
-                        continue
+                        break
                     result["amr"]["classes"][field_name] = value
                     phenotype = amr_dict[field_name]
                     tag = phenotype["key"]
@@ -133,6 +132,7 @@ def parse_kleborate(raw: dict[str, str], amr_dict: dict[str, dict[str, str]]) ->
                     result[field_name] = value
                 break
         else:
+            print(f"Key: {key}, Module: {module_name}, Field: {field_name}, Value: {value}", file=sys.stderr)
             print(f"Unrecognized field {key} in Kleborate output", file=sys.stderr)
     return result
 

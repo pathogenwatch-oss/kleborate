@@ -74,6 +74,7 @@
     "spurious_smst_hits": "-",
     "spurious_rmst_hits": "-"
   },
+  "species": "Klebsiella oxytoca",
   "species_match": "strong",
   "contig_count": "41",
   "N50": "378801",

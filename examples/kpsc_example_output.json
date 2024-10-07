@@ -2,6 +2,7 @@
   "modules": [
     "enterobacterales__species",
     "general__contig_stats",
+    "klebsiella_pneumo_complex__mlst",
     "klebsiella__ybst",
     "klebsiella__cbst",
     "klebsiella__abst",
@@ -10,8 +11,10 @@
     "klebsiella_pneumo_complex__virulence_score",
     "klebsiella__rmpa2",
     "klebsiella_pneumo_complex__amr",
+    "klebsiella_pneumo_complex__resistance_score",
     "klebsiella_pneumo_complex__resistance_class_count",
     "klebsiella_pneumo_complex__resistance_gene_count",
+    "klebsiella_pneumo_complex__wzi",
     "klebsiella_pneumo_complex__kaptive"
   ],
   "amr": {
@@ -255,6 +258,7 @@
     },
     "truncated_resistance_hits": "-",
     "spurious_resistance_hits": "aac(6')-Ib7*?-76%;tet(A).v1?-42%;tet(A).v2?-0%",
+    "resistance_score": "2",
     "num_resistance_classes": "8",
     "num_resistance_genes": "13"
   },
@@ -317,8 +321,10 @@
     "spurious_abst_hits": "-",
     "spurious_smst_hits": "-",
     "spurious_rmst_hits": "-",
+    "virulence_score": "1",
     "spurious_virulence_hits": "-"
   },
+  "species": "Klebsiella pneumoniae",
   "species_match": "strong",
   "contig_count": "105",
   "N50": "185718",
@@ -326,6 +332,15 @@
   "total_size": "5842718",
   "ambiguous_bases": "yes (599)",
   "QC_warnings": "ambiguous_bases",
+  "ST": "ST147",
+  "gapA": "3",
+  "infB": "4",
+  "mdh": "6",
+  "pgi": "1",
+  "phoE": "7",
+  "rpoB": "4",
+  "tonB": "38",
+  "wzi": "wzi64",
   "K_locus": "KL64",
   "K_type": "K64",
   "K_locus_confidence": "Typeable",
