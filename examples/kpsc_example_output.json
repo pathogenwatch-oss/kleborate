@@ -1,0 +1,345 @@
+{
+  "modules": [
+    "enterobacterales__species",
+    "general__contig_stats",
+    "klebsiella__ybst",
+    "klebsiella__cbst",
+    "klebsiella__abst",
+    "klebsiella__smst",
+    "klebsiella__rmst",
+    "klebsiella_pneumo_complex__virulence_score",
+    "klebsiella__rmpa2",
+    "klebsiella_pneumo_complex__amr",
+    "klebsiella_pneumo_complex__resistance_class_count",
+    "klebsiella_pneumo_complex__resistance_gene_count",
+    "klebsiella_pneumo_complex__kaptive"
+  ],
+  "amr": {
+    "profile": {
+      "AGS": {
+        "key": "AGS",
+        "kleborateCode": "AGly",
+        "name": "Aminoglycosides",
+        "type": "Aminoglycosides",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": true,
+        "matches": "aac(3)-IIa.v1^;strA.v1;strB.v1"
+      },
+      "CST": {
+        "key": "CST",
+        "kleborateCode": "Col",
+        "name": "Colistin",
+        "type": "Colistin",
+        "classes": [
+          "acquired",
+          "mutations"
+        ],
+        "resistant": false,
+        "matches": "-"
+      },
+      "FOF": {
+        "key": "FOF",
+        "kleborateCode": "Fcyn",
+        "name": "Fosfomycin",
+        "type": "Phosphonic Acid",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": false,
+        "matches": "-"
+      },
+      "FLQ": {
+        "key": "FLQ",
+        "kleborateCode": "Flq",
+        "name": "Fluoroquinolones",
+        "type": "Fluoroquinolones",
+        "classes": [
+          "acquired",
+          "mutations"
+        ],
+        "resistant": true,
+        "matches": "qnrS1"
+      },
+      "GPA": {
+        "key": "GPA",
+        "kleborateCode": "Gly",
+        "name": "Glycopeptides",
+        "type": "Glycopeptides",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": false,
+        "matches": "-"
+      },
+      "MAC": {
+        "key": "MAC",
+        "kleborateCode": "MLS",
+        "name": "Macrolides",
+        "type": "Macrolides",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": false,
+        "matches": "-"
+      },
+      "PHE": {
+        "key": "PHE",
+        "kleborateCode": "Phe",
+        "name": "Phenicols",
+        "type": "Phenicols",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": true,
+        "matches": "CatB4.v1?;floR.v2*"
+      },
+      "RIF": {
+        "key": "RIF",
+        "kleborateCode": "Rif",
+        "name": "Rifampicin",
+        "type": "Rifamycin",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": false,
+        "matches": "-"
+      },
+      "SMX": {
+        "key": "SMX",
+        "kleborateCode": "Sul",
+        "name": "Sulfonamides",
+        "type": "Sulfonamides",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": true,
+        "matches": "sul1;sul2"
+      },
+      "TCY": {
+        "key": "TCY",
+        "kleborateCode": "Tet",
+        "name": "Tetracycline",
+        "type": "Tetracyclines",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": false,
+        "matches": "-"
+      },
+      "TGC": {
+        "key": "TGC",
+        "kleborateCode": "Tgc",
+        "name": "Tigecycline",
+        "type": "Glycylcycline",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": false,
+        "matches": "-"
+      },
+      "TMP": {
+        "key": "TMP",
+        "kleborateCode": "Tmt",
+        "name": "Trimethoprim",
+        "type": "Diaminopyrimidine",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": true,
+        "matches": "dfrA1.v1"
+      },
+      "BLA": {
+        "key": "BLA",
+        "kleborateCode": "Bla",
+        "name": "Penicillins",
+        "type": "Penicillins",
+        "classes": [
+          "acquired",
+          "chr"
+        ],
+        "resistant": true,
+        "matches": "OXA-1^;TEM-1D.v1^"
+      },
+      "BLI": {
+        "key": "BLI",
+        "kleborateCode": "Bla_inhR",
+        "name": "Penicillins with beta-lactamase inhibitors",
+        "type": "Penicillins with beta-lactamase inhibitors",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": false,
+        "matches": "-"
+      },
+      "EBL": {
+        "key": "EBL",
+        "kleborateCode": "Bla_ESBL",
+        "name": "Cephalosporins (third generation)",
+        "type": "Third generation cephalosporins",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": true,
+        "matches": "CTX-M-15"
+      },
+      "EBI": {
+        "key": "EBI",
+        "kleborateCode": "Bla_ESBL_inhR",
+        "name": "Cephalosporins (third generation) with beta-lactamase inhibitors",
+        "type": "Third generation cephalosporins with beta-lactamase inhibitors",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": false,
+        "matches": "-"
+      },
+      "CBP": {
+        "key": "CBP",
+        "kleborateCode": "Bla_Carb",
+        "name": "Carbapenems",
+        "type": "Carbapenems",
+        "classes": [
+          "acquired"
+        ],
+        "resistant": true,
+        "matches": "OXA-48"
+      },
+      "SHVM": {
+        "key": "SHVM",
+        "kleborateCode": "SHV",
+        "name": "SHV variants",
+        "type": "Other",
+        "classes": [
+          "mutations"
+        ],
+        "resistant": true,
+        "matches": "35Q"
+      },
+      "OMPK": {
+        "key": "OMPK",
+        "kleborateCode": "Omp",
+        "name": "OmpK35/OmpK36",
+        "type": "OmpK35/OmpK36 Variants",
+        "classes": [
+          "mutations"
+        ],
+        "resistant": true,
+        "matches": "OmpK35-7%;OmpK36GD"
+      }
+    },
+    "classes": {
+      "AGly_acquired": "aac(3)-IIa.v1^;strA.v1;strB.v1",
+      "Col_acquired": "-",
+      "Fcyn_acquired": "-",
+      "Flq_acquired": "qnrS1",
+      "Gly_acquired": "-",
+      "MLS_acquired": "-",
+      "Phe_acquired": "CatB4.v1?;floR.v2*",
+      "Rif_acquired": "-",
+      "Sul_acquired": "sul1;sul2",
+      "Tet_acquired": "-",
+      "Tgc_acquired": "-",
+      "Tmt_acquired": "dfrA1.v1",
+      "Bla_acquired": "OXA-1^;TEM-1D.v1^",
+      "Bla_inhR_acquired": "-",
+      "Bla_ESBL_acquired": "CTX-M-15",
+      "Bla_ESBL_inhR_acquired": "-",
+      "Bla_Carb_acquired": "OXA-48",
+      "Bla_chr": "SHV-11^",
+      "SHV_mutations": "35Q",
+      "Omp_mutations": "OmpK35-7%;OmpK36GD",
+      "Col_mutations": "-",
+      "Flq_mutations": "GyrA-83I;ParC-80I"
+    },
+    "truncated_resistance_hits": "-",
+    "spurious_resistance_hits": "aac(6')-Ib7*?-76%;tet(A).v1?-42%;tet(A).v2?-0%",
+    "num_resistance_classes": "8",
+    "num_resistance_genes": "13"
+  },
+  "virulence": {
+    "profile": {
+      "YbST": "280",
+      "Yersiniabactin": "ybt 16; ICEKp12",
+      "CbST": "0",
+      "Colibactin": "-",
+      "AbST": "0",
+      "Aerobactin": "-",
+      "SmST": "0",
+      "Salmochelin": "-",
+      "RmST": "0",
+      "RmpADC": "-",
+      "rmpA2": "-"
+    },
+    "markers": {
+      "ybtS": "6",
+      "ybtX": "15",
+      "ybtQ": "5",
+      "ybtP": "4",
+      "ybtA": "11",
+      "irp2": "125",
+      "irp1": "129",
+      "ybtU": "2",
+      "ybtT": "11",
+      "ybtE": "51",
+      "fyuA": "2",
+      "clbA": "-",
+      "clbB": "-",
+      "clbC": "-",
+      "clbD": "-",
+      "clbE": "-",
+      "clbF": "-",
+      "clbG": "-",
+      "clbH": "-",
+      "clbI": "-",
+      "clbL": "-",
+      "clbM": "-",
+      "clbN": "-",
+      "clbO": "-",
+      "clbP": "-",
+      "clbQ": "-",
+      "iucA": "-",
+      "iucB": "-",
+      "iucC": "-",
+      "iucD": "-",
+      "iutA": "-",
+      "iroB": "-",
+      "iroC": "-",
+      "iroD": "-",
+      "iroN": "-",
+      "rmpA": "-",
+      "rmpD": "-",
+      "rmpC": "-"
+    },
+    "spurious_ybt_hits": "-",
+    "spurious_clb_hits": "-",
+    "spurious_abst_hits": "-",
+    "spurious_smst_hits": "-",
+    "spurious_rmst_hits": "-",
+    "spurious_virulence_hits": "-"
+  },
+  "species_match": "strong",
+  "contig_count": "105",
+  "N50": "185718",
+  "largest_contig": "742186",
+  "total_size": "5842718",
+  "ambiguous_bases": "yes (599)",
+  "QC_warnings": "ambiguous_bases",
+  "K_locus": "KL64",
+  "K_type": "K64",
+  "K_locus_confidence": "Typeable",
+  "K_locus_problems": "-",
+  "K_locus_identity": "99.96%",
+  "K_Missing_expected_genes": "-",
+  "O_locus": "O1/O2v1",
+  "O_type": "O2a",
+  "O_locus_confidence": "Typeable",
+  "O_locus_problems": "-",
+  "O_locus_identity": "99.03%",
+  "O_Missing_expected_genes": "-",
+  "versions": {
+    "kleborate": "v3.1.0",
+    "wrapper": "2"
+  }
+}
