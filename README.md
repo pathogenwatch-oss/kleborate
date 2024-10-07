@@ -37,3 +37,12 @@ The `dev` targe can be used to build an image that includes all dependencies for
 ```
 docker build --rm --target dev --build-arg KLEBORATE_VERSION=v3.1.0 -t kleborate-dev .
 ```
+
+### Building Kleborate
+
+The `kleborate` target can be used to create an image that runs Kleborate without the wrapper script.
+
+```
+docker build --rm --target kleborate --build-arg KLEBORATE_VERSION=v3.1.0 -t kleborate:v3.1.0 .
+```
+
