@@ -92,8 +92,11 @@ def parse_kleborate(raw: dict[str, str], amr_dict: dict[str, dict[str, str]]) ->
     }
 
     for key, value in raw.items():
+        if key == "strain":
+            continue
         field_name = key.split("__")[-1]
-        module_name = key.replace(f"__{field_name}", "")
+        module_name = "__".join(key.split("__")[0:-1])
+        print(f"Key: {key}, Module: {module_name}, Field: {field_name}, Value: {value}", file=sys.stderr)
         for group in modules.keys():
             if module_name in modules[group]:
                 # Code here
@@ -129,6 +132,8 @@ def parse_kleborate(raw: dict[str, str], amr_dict: dict[str, dict[str, str]]) ->
                 else:
                     result[field_name] = value
                 break
+        else:
+            print(f"Unrecognized field {key} in Kleborate output", file=sys.stderr)
     return result
 
 
@@ -169,7 +174,6 @@ def main(
                 exists=True,
                 dir_okay=False
             )] = "code_version",
-
 ) -> None:
     config = configs[species]
     # Run kleborate
@@ -202,70 +206,6 @@ def main(
         result = parse_kleborate(next(reader), amr_dict) | {
             "versions": {"kleborate": kleborate_version, "wrapper": code_version}}
         print(json.dumps(result), file=sys.stdout)
-
-    # amr_profile = dict()
-    # amr_profile['profile'] = dict()
-    # amr_profile['classes'] = dict()
-    #
-    # output = dict()
-    # output['Kleborate version'] = version
-    # output['virulence'] = dict()
-    # output['typing'] = dict()
-    # output['other'] = dict()
-    # output['csv'] = list()
-    #
-    # for i in range(0, len(top_level_fields)):
-    #     output[top_level_fields[i]] = result[i]
-    #     output['csv'].append({'set': '', 'field': top_level_fields[i], 'name': top_level_fields[i]})
-    #
-    # column_counter = len(top_level_fields)
-    #
-    # for i in range(0, len(virulence_fields)):
-    #     output['virulence'][virulence_fields[i]] = result[column_counter]
-    #     output['csv'].append({'set': 'virulence', 'field': virulence_fields[i], 'name': virulence_fields[i]})
-    #     column_counter += 1
-    #
-    # for i in range(0, len(typing_fields)):
-    #     output['typing'][typing_fields[i]] = result[column_counter]
-    #     output['csv'].append({'set': 'typing', 'field': typing_fields[i], 'name': typing_fields[i]})
-    #     column_counter += 1
-    #
-    # amr_cache = set()
-    #
-    # for i in range(0, len(classes_fields)):
-    #     amr_profile['classes'][classes_fields[i]] = result[column_counter]
-    #     phenotype = amr_dict[classes_fields[i]]
-    #     tag = phenotype['key']
-    #     if tag not in amr_profile['profile'].keys():
-    #         amr_cache.add(tag)
-    #         amr_profile['profile'][tag] = phenotype
-    #         amr_profile['profile'][tag]['resistant'] = False
-    #         amr_profile['profile'][tag]['matches'] = '-'
-    #     if result[column_counter] != '-':
-    #         amr_profile['profile'][tag]['resistant'] = True
-    #         if amr_profile['profile'][tag]['matches'] == '-':
-    #             amr_profile['profile'][tag]['matches'] = result[column_counter]
-    #         else:
-    #             amr_profile['profile'][tag]['matches'] = amr_profile['profile'][tag]['matches'] + ';' + result[
-    #                 column_counter]
-    #     output['csv'].append({'set': 'amr', 'field': classes_fields[i], 'name': classes_fields[i]})
-    #     column_counter += 1
-    #
-    # output['amr'] = amr_profile
-    # output['amr']['classes']['truncated_resistance_hits'] = result[column_counter]
-    # output['csv'].append({'set': 'amr', 'field': 'truncated_resistance_hits', 'name': 'truncated_resistance_hits'})
-    #
-    # output['amr']['classes']['spurious_resistance_hits'] = result[column_counter + 1]
-    # output['csv'].append({'set': 'amr', 'field': 'spurious_resistance_hits', 'name': 'spurious_resistance_hits'})
-    # column_counter += 2
-    #
-    # for i in range(0, len(other_fields)):
-    #     output['other'][other_fields[i]] = result[column_counter]
-    #     output['csv'].append({'set': 'other', 'field': other_fields[i], 'name': other_fields[i]})
-    #     column_counter += 1
-    #
-    # del output['strain']
-    # print(json.dumps(output, separators=(',', ':')), file=sys.stdout)
 
 
 if __name__ == "__main__":

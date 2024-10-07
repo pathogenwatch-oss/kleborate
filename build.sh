@@ -11,5 +11,7 @@ CODE_VERSION="$(cat code_version)"
 
 for i in kpsc kosc other
 do
-  docker build --rm --target prod --build-arg KLEBORATE_VERSION=${KLEBORATE_VERSION} --build-arg SPECIES=${i} -t ${IMAGE_BASE}:${i}-${KLEBORATE_VERSION}-${CODE_VERSION} .
+  IMAGE_NAME=${IMAGE_BASE}:${i}-${KLEBORATE_VERSION}-${CODE_VERSION}
+  docker build --rm --target prod --build-arg KLEBORATE_VERSION=${KLEBORATE_VERSION} --build-arg SPECIES=${i} -t ${IMAGE_NAME} .
+  docker push ${IMAGE_NAME}
 done
