@@ -113,13 +113,13 @@ def parse_kleborate(raw: dict[str, str], amr_dict: dict[str, dict[str, str]]) ->
                         result["amr"]['profile'][tag] = phenotype
                         result["amr"]['profile'][tag]['resistant'] = False
                         result["amr"]['profile'][tag]['matches'] = '-'
-                        if value != '-':
-                            result["amr"]['profile'][tag]['resistant'] = True
-                            if result["amr"]['profile'][tag]['matches'] == '-':
-                                result["amr"]['profile'][tag]['matches'] = value
-                            else:
-                                result["amr"]['profile'][tag][
-                                    'matches'] = f'{result["amr"]["profile"][tag]["matches"]};{value}'
+                    if value != '-':
+                        result["amr"]['profile'][tag]['resistant'] = True
+                        if result["amr"]['profile'][tag]['matches'] == '-':
+                            result["amr"]['profile'][tag]['matches'] = value
+                        else:
+                            result["amr"]['profile'][tag][
+                                'matches'] = f'{result["amr"]["profile"][tag]["matches"]};{value}'
                 elif group == "virulence_modules":
                     if field_name in ["Yersiniabactin", "YbST", "Colibactin", "CbST", "Aerobactin", "AbST",
                                       "Salmochelin", "SmST", "RmpADC", "RmST", "rmpA2"]:
