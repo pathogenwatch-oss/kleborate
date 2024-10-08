@@ -134,6 +134,13 @@ def parse_kleborate(raw: dict[str, str], amr_dict: dict[str, dict[str, str]]) ->
         else:
             print(f"Key: {key}, Module: {module_name}, Field: {field_name}, Value: {value}", file=sys.stderr)
             print(f"Unrecognized field {key} in Kleborate output", file=sys.stderr)
+
+    # Clean up the result dictionary
+    if not result["amr"]["classes"]:
+        del result["amr"]
+    if not result["virulence"]["profile"]:
+        del result["virulence"]["profile"]
+
     return result
 
 
