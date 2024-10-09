@@ -63,7 +63,7 @@
           "mutations"
         ],
         "resistant": true,
-        "matches": "qnrS1"
+        "matches": "qnrS1;GyrA-83I;ParC-80I"
       },
       "GPA": {
         "key": "GPA",
@@ -163,7 +163,7 @@
           "chr"
         ],
         "resistant": true,
-        "matches": "OXA-1^;TEM-1D.v1^"
+        "matches": "OXA-1^;TEM-1D.v1^;SHV-11^"
       },
       "BLI": {
         "key": "BLI",

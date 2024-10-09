@@ -138,8 +138,8 @@ def parse_kleborate(raw: dict[str, str], amr_dict: dict[str, dict[str, str]]) ->
     # Clean up the result dictionary
     if not result["amr"]["classes"]:
         del result["amr"]
-    if not result["virulence"]["profile"]:
-        del result["virulence"]["profile"]
+    if not result["virulence"]["markers"] and not result["virulence"]["profile"]:
+        del result["virulence"]
 
     return result
 

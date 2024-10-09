@@ -10,10 +10,6 @@
     "klebsiella__rmst",
     "klebsiella__rmpa2"
   ],
-  "amr": {
-    "profile": {},
-    "classes": {}
-  },
   "virulence": {
     "profile": {
       "YbST": "0",
