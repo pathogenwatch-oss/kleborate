@@ -200,18 +200,29 @@ def main(
         print("Standard error:", e.stderr, file=sys.stderr)
         sys.exit(1)
 
-    # Read result file and write as json blob
-    with (open(f'/tmp/{config.output_filename}', 'r') as result_fh,
-          open(amr_json, 'r') as js_fh,
-          open(kleborate_version_file, 'r') as v_fh,
-          open(code_version_file, 'r') as c_fh):
+    if not Path(kleborate_version_file).is_file() or not Path(code_version_file).is_file():
+        print("Error: Kleborate version and code version files not found", file=sys.stderr)
+        sys.exit(1)
+
+    with open(kleborate_version_file, 'r') as v_fh, open(code_version_file, 'r') as c_fh:
         kleborate_version = v_fh.readline().strip()
         code_version = c_fh.readline().strip()
+
+    versions = {"versions": {"kleborate": kleborate_version, "wrapper": code_version}}
+
+    output_filename = f'/tmp/{config.output_filename}'
+    # Print an empty result if the output file does not exist and exit.
+    if not Path(output_filename).is_file():
+        print(json.dumps({"modules": []} | versions), file=sys.stdout)
+        sys.exit(0)
+
+    # Read result file and write as json blob
+    with open(output_filename, 'r') as result_fh, open(amr_json, 'r') as js_fh:
         amr_dict = {f"{record['kleborateCode']}_{extension}": record for record in json.load(js_fh) for extension in
                     record['classes']}
         reader = csv.DictReader(result_fh, delimiter='\t')
-        result = parse_kleborate(next(reader), amr_dict) | {
-            "versions": {"kleborate": kleborate_version, "wrapper": code_version}}
+        result = parse_kleborate(next(reader), amr_dict) | versions
+
         print(json.dumps(result), file=sys.stdout)
 
 
