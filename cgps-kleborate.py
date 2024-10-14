@@ -184,6 +184,56 @@ def main(
 ) -> None:
     config = configs[species]
     # Run kleborate
+    run_kleborate(assembly_file, config)
+
+    if not Path(kleborate_version_file).is_file() or not Path(code_version_file).is_file():
+        print("Error: Kleborate version and code version files not found", file=sys.stderr)
+        sys.exit(1)
+
+    with open(kleborate_version_file, 'r') as v_fh, open(code_version_file, 'r') as c_fh:
+        kleborate_version = v_fh.readline().strip()
+        code_version = c_fh.readline().strip()
+
+    versions = {"versions": {"kleborate": kleborate_version, "wrapper": code_version}}
+
+    output_filename = f'/tmp/{config.output_filename}'
+
+    # Deal with missing result file.
+    if not Path(output_filename).is_file():
+        other_filenames = [f'/tmp/{config.output_filename}' for config in configs.values()]
+        result = {}
+        for other_filename in other_filenames:
+            if Path(other_filename).is_file():
+                with open(other_filename, 'r') as other_fh:
+                    reader = csv.DictReader(other_fh, delimiter='\t')
+                    row = next(reader)
+                    result["modules"] = ["enterobacterales__species"]
+                    result["species"] = row["enterobacterales__species__species"]
+                    result["species_match"] = row["enterobacterales__species__species_match"]
+                    break
+        else:  # If the species is not kosc or kpsc the output file is not created so it needs rerunning.
+            run_kleborate(assembly_file, configs.get(Profile.other))
+            rerun_output_filename = f"/tmp/{configs.get(Profile.other).output_filename}"
+            if not Path(rerun_output_filename).is_file():
+                result = {"modules": []} | versions
+            else:
+                with open(rerun_output_filename, 'r') as result_fh:
+                    reader = csv.DictReader(result_fh, delimiter='\t')
+                    result = parse_kleborate(next(reader), {}) | versions
+        print(json.dumps(result), file=sys.stdout)
+        sys.exit(0)
+
+    # Read result file and write as json blob
+    with open(output_filename, 'r') as result_fh, open(amr_json, 'r') as js_fh:
+        amr_dict = {f"{record['kleborateCode']}_{extension}": record for record in json.load(js_fh) for extension in
+                    record['classes']}
+        reader = csv.DictReader(result_fh, delimiter='\t')
+        result = parse_kleborate(next(reader), amr_dict) | versions
+
+        print(json.dumps(result), file=sys.stdout)
+
+
+def run_kleborate(assembly_file, config):
     try:
         command = ['kleborate', '-a', str(assembly_file), '-o', '/tmp/', ] + config.flag
         subprocess.run(
@@ -199,31 +249,6 @@ def main(
         print("Standard output:", e.stdout, file=sys.stderr)
         print("Standard error:", e.stderr, file=sys.stderr)
         sys.exit(1)
-
-    if not Path(kleborate_version_file).is_file() or not Path(code_version_file).is_file():
-        print("Error: Kleborate version and code version files not found", file=sys.stderr)
-        sys.exit(1)
-
-    with open(kleborate_version_file, 'r') as v_fh, open(code_version_file, 'r') as c_fh:
-        kleborate_version = v_fh.readline().strip()
-        code_version = c_fh.readline().strip()
-
-    versions = {"versions": {"kleborate": kleborate_version, "wrapper": code_version}}
-
-    output_filename = f'/tmp/{config.output_filename}'
-    # Print an empty result if the output file does not exist and exit.
-    if not Path(output_filename).is_file():
-        print(json.dumps({"modules": []} | versions), file=sys.stdout)
-        sys.exit(0)
-
-    # Read result file and write as json blob
-    with open(output_filename, 'r') as result_fh, open(amr_json, 'r') as js_fh:
-        amr_dict = {f"{record['kleborateCode']}_{extension}": record for record in json.load(js_fh) for extension in
-                    record['classes']}
-        reader = csv.DictReader(result_fh, delimiter='\t')
-        result = parse_kleborate(next(reader), amr_dict) | versions
-
-        print(json.dumps(result), file=sys.stdout)
 
 
 if __name__ == "__main__":
