@@ -49,4 +49,4 @@ COPY cgps-kleborate.py .
 
 COPY amrMap.json .
 
-ENTRYPOINT cat | sed 's/\t//' > /tmp/query.fna && python3 cgps-kleborate.py -k /Kleborate/kleborate_version -c /Kleborate/code_version -a /Kleborate/amrMap.json /tmp/query.fna ${SPECIES}
+ENTRYPOINT cat | sed 's/\t//' | sed 's/ /_/g' > /tmp/query.fna && python3 cgps-kleborate.py -k /Kleborate/kleborate_version -c /Kleborate/code_version -a /Kleborate/amrMap.json /tmp/query.fna ${SPECIES}
