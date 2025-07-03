@@ -14,6 +14,7 @@
     "klebsiella_pneumo_complex__resistance_score",
     "klebsiella_pneumo_complex__resistance_class_count",
     "klebsiella_pneumo_complex__resistance_gene_count",
+    "klebsiella_pneumo_complex__cipro_prediction",
     "klebsiella_pneumo_complex__wzi",
     "klebsiella_pneumo_complex__kaptive"
   ],
@@ -28,7 +29,7 @@
           "acquired"
         ],
         "resistant": true,
-        "matches": "aac(3)-IIa.v1^;strA.v1;strB.v1"
+        "matches": "aac(3)-IIa.v1^;strB.v1;strA.v1"
       },
       "CST": {
         "key": "CST",
@@ -63,7 +64,7 @@
           "mutations"
         ],
         "resistant": true,
-        "matches": "qnrS1;GyrA-83I;ParC-80I"
+        "matches": "qnrS1;GyrA:p.Ser83Ile;ParC:p.Ser80Ile"
       },
       "GPA": {
         "key": "GPA",
@@ -96,7 +97,7 @@
           "acquired"
         ],
         "resistant": true,
-        "matches": "CatB4.v1?;floR.v2*"
+        "matches": "floR.v2*"
       },
       "RIF": {
         "key": "RIF",
@@ -163,7 +164,7 @@
           "chr"
         ],
         "resistant": true,
-        "matches": "OXA-1^;TEM-1D.v1^;SHV-11^"
+        "matches": "OXA-1^;CTX-M-15;OXA-48;SHV-11^"
       },
       "BLI": {
         "key": "BLI",
@@ -185,7 +186,7 @@
           "acquired"
         ],
         "resistant": true,
-        "matches": "CTX-M-15"
+        "matches": "CTX-M-15;OXA-48"
       },
       "EBI": {
         "key": "EBI",
@@ -218,7 +219,7 @@
           "mutations"
         ],
         "resistant": true,
-        "matches": "35Q"
+        "matches": "SHV:p.Leu35Gln"
       },
       "OMPK": {
         "key": "OMPK",
@@ -229,38 +230,38 @@
           "mutations"
         ],
         "resistant": true,
-        "matches": "OmpK35-7%;OmpK36GD"
+        "matches": "OmpK36:p.134_135insGlyAsp;OmpK35:p.Met2fs"
       }
     },
     "classes": {
-      "AGly_acquired": "aac(3)-IIa.v1^;strA.v1;strB.v1",
+      "AGly_acquired": "aac(3)-IIa.v1^;strB.v1;strA.v1",
       "Col_acquired": "-",
       "Fcyn_acquired": "-",
       "Flq_acquired": "qnrS1",
       "Gly_acquired": "-",
       "MLS_acquired": "-",
-      "Phe_acquired": "CatB4.v1?;floR.v2*",
+      "Phe_acquired": "floR.v2*",
       "Rif_acquired": "-",
       "Sul_acquired": "sul1;sul2",
       "Tet_acquired": "-",
       "Tgc_acquired": "-",
       "Tmt_acquired": "dfrA1.v1",
-      "Bla_acquired": "OXA-1^;TEM-1D.v1^",
+      "Bla_acquired": "OXA-1^",
       "Bla_inhR_acquired": "-",
       "Bla_ESBL_acquired": "CTX-M-15",
       "Bla_ESBL_inhR_acquired": "-",
       "Bla_Carb_acquired": "OXA-48",
       "Bla_chr": "SHV-11^",
-      "SHV_mutations": "35Q",
-      "Omp_mutations": "OmpK35-7%;OmpK36GD",
+      "SHV_mutations": "SHV:p.Leu35Gln",
+      "Omp_mutations": "OmpK36:p.134_135insGlyAsp;OmpK35:p.Met2fs",
       "Col_mutations": "-",
-      "Flq_mutations": "GyrA-83I;ParC-80I"
+      "Flq_mutations": "GyrA:p.Ser83Ile;ParC:p.Ser80Ile"
     },
     "truncated_resistance_hits": "-",
-    "spurious_resistance_hits": "aac(6')-Ib7*?-76%;tet(A).v1?-42%;tet(A).v2?-0%",
+    "spurious_resistance_hits": "tet(A).v2?-0%;catB3.v1?-70%;aac(6')-Ib7*?-76%;tet(A).v1?-42%",
     "resistance_score": "2",
-    "num_resistance_classes": "8",
-    "num_resistance_genes": "13"
+    "num_resistance_classes": "9",
+    "num_resistance_genes": "12"
   },
   "virulence": {
     "profile": {
@@ -340,6 +341,10 @@
   "phoE": "7",
   "rpoB": "4",
   "tonB": "38",
+  "Ciprofloxacin_prediction": "nonwildtype R",
+  "Ciprofloxacin_profile_support": "99.22% R (N=2421/2440)",
+  "Ciprofloxacin_profile": ">0 QRDR, >0 PMQR, * aac(6`)-Ib-cr",
+  "Ciprofloxacin_MIC_prediction": "4 mg/L [4-4]",
   "wzi": "wzi64",
   "K_locus": "KL64",
   "K_type": "K64",
@@ -347,14 +352,14 @@
   "K_locus_problems": "-",
   "K_locus_identity": "99.96%",
   "K_Missing_expected_genes": "-",
-  "O_locus": "O1/O2v1",
-  "O_type": "O2a",
+  "O_locus": "OL2α.1",
+  "O_type": "O2α",
   "O_locus_confidence": "Typeable",
   "O_locus_problems": "-",
   "O_locus_identity": "99.03%",
   "O_Missing_expected_genes": "-",
   "versions": {
-    "kleborate": "v3.1.0",
-    "wrapper": "2"
+    "kleborate": "v3.2.3",
+    "wrapper": "6"
   }
 }

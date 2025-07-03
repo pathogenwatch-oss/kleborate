@@ -13,7 +13,7 @@
   "virulence": {
     "profile": {
       "YbST": "0",
-      "Yersiniabactin": "-",
+      "Yersiniabactin": "ybt unknown",
       "CbST": "0",
       "Colibactin": "-",
       "AbST": "0",
@@ -88,7 +88,7 @@
   "rpoB": "2",
   "tonB": "2",
   "versions": {
-    "kleborate": "v3.1.0",
-    "wrapper": "2"
+    "kleborate": "v3.2.3",
+    "wrapper": "6"
   }
 }

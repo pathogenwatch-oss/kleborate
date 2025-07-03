@@ -2,7 +2,7 @@
 
 Docker wrapper of Kat Holt's Kleborate for integration with Pathogenwatch.
 
-Takes a FASTA file streamed to SDTIN and writes a JSON blob to STDOUT
+Takes a FASTA file streamed to STDIN and writes a JSON blob to STDOUT
 
 ## Testing
 
@@ -13,9 +13,9 @@ cat examples/kpsc_example.fasta | docker run --rm  -i registry.gitlab.com/cgps/c
 ## Building
 
 Support is provided for running Kleborate in 3 different modes:
-1. kpsc - K. pnuemoniae species complex
-2. kosc - K. ocytoca species complex
-3. other - The species module only. Intended for Klebsiella species validation.
+1. kpsc: _K. pnuemoniae_ species complex.
+2. kosc: _K. ocytoca_ species complex.
+3. other: The species module only. Intended for Klebsiella species validation.
 
 ### Building all the images
 ```
